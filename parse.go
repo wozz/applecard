@@ -3,7 +3,6 @@ package applecard
 import (
 	"bytes"
 	"encoding/csv"
-	"fmt"
 	"regexp"
 	"strings"
 
@@ -166,7 +165,6 @@ func parseTransactions(lines []string) ([]transaction, error) {
 			} else if i == stateChangeNum+5 {
 				tx.transactionAmt = l
 			}
-			fmt.Println(i-stateChangeNum, l)
 		}
 		if curState == txList && i == stateChangeNum+5 {
 			txs = append(txs, tx)
